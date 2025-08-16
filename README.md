@@ -16,7 +16,7 @@ Spots is a mock image sharing site project that helps TripleTen students learn h
 
 This webpage is deployed to GitHub Pages.
 
-- Deployment Link:
+- [Deployment Link](https://riah-live.github.io/se_project_spots/)
 
 ## Images
 
