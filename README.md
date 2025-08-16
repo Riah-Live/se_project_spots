@@ -19,3 +19,17 @@ This webpage is deployed to GitHub Pages.
 - Deployment Link:
 
 ## Images
+
+- ![Bessie Coleman avatar](./images/opt-avatar.jpg)
+
+- ![Val Thorens](./images/opt-moritz-feldmann-from-pexels.jpg)
+
+- ![Restaurant terrace](./images/opt-ceiline-from-pexels.jpg)
+
+- ![An outdoor cafe](./images/opt-tubanur-dogan-from-pexels.jpg)
+
+- ![A very long bridge, over the forest...](./images/opt-maurice-laschet-from-pexels.jpg)
+
+- ![Tunnel with morning light](./images/opt-van-anh-nguyen-from-pexels.jpg)
+
+- ![Mountain house](./images/6-opt-moritz-feldmann-from-pexels.jpg)
