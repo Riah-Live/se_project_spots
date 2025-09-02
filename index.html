@@ -29,11 +29,12 @@
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button type="button" class="profile__edit-btn">
-              <img src="./images/pencil.svg" alt="pencil icon" />
+              <img src="./images/pencil-icon.svg" alt="pencil icon" /> Edit
+              Profile
             </button>
           </div>
           <button type="button" class="profile__add-btn">
-            <img src="./images/plus.svg" alt="Plus icon" />
+            <img src="./images/plus-icon.svg" alt="Plus icon" /> New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -113,15 +114,5 @@
         <p class="footer__text">2025 &copy; Spots</p>
       </footer>
     </div>
-    <script>
-      addButton = document.querySelector(".profile__add-btn");
-      const addButtonImg = addButton.querySelector("img");
-      addButton.addEventListener("mouseenter", function () {
-        addButtonImg.src = "./images/State=Hover.svg";
-      });
-      addButton.addEventListener("mouseleave", function () {
-        addButtonImg.src = "./images/plus.svg";
-      });
-    </script>
   </body>
 </html>

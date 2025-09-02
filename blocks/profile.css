@@ -38,6 +38,12 @@
 }
 
 .profile__edit-btn {
+  display: flex;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  gap: 8px;
+  opacity: 70%;
   margin-top: auto;
   background: none;
   border: none;
@@ -47,14 +53,26 @@
 
 .profile__edit-btn:hover {
   transform: translateY(-1px);
+  opacity: 100%;
 }
 
 .profile__add-btn {
-  margin-left: auto;
-  background: none;
-  border: none;
   display: flex;
-  align-items: end;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #fcf5e5;
+  gap: 8px;
+  padding: 18px 32px;
+  margin-left: auto;
+  background-color: #212121;
+  border: solid;
+  border-radius: 8px;
+  align-self: flex-end;
+}
+
+.profile__add-btn:hover {
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {
