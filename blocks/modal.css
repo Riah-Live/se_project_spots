@@ -9,9 +9,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
-.modal_is-opened {
+.modal__is-opened {
   visibility: visible;
 }
 
@@ -22,7 +23,6 @@
   background-color: #fff;
   padding: 32px 50px;
   position: relative;
-  gap: 32px;
 }
 
 .modal__close-btn {
@@ -35,6 +35,8 @@
   justify-content: center;
   align-self: flex-end;
   opacity: 40%;
+  border: none;
+  background-color: transparent;
 }
 
 .modal__close-btn:hover {
@@ -92,4 +94,34 @@
 
 .modal__input::placeholder {
   color: rgba(33, 33, 33, 0.3);
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    padding: 12px 12px;
+    gap: 24px;
+  }
+
+  .modal__title {
+    font-size: 20px;
+    margin: 12px 0 24px;
+  }
+
+  .modal__close-btn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .modal__label {
+    margin: 0 0 24px;
+  }
+
+  .modal__input {
+    box-sizing: border-box;
+  }
+
+  .modal__submit-btn {
+    max-width: none;
+    width: 100%;
+  }
 }
