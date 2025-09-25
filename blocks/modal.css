@@ -11,7 +11,7 @@
   align-items: center;
   padding: 10px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: visibility 0.3s ease-in-out, opacity 0.3s easi-in-out;
 }
 
 .modal_type_preview {
@@ -93,6 +93,7 @@
   opacity: 40%;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .modal__close-btn:hover {
