@@ -35,6 +35,15 @@ const initialCards = [
   },
 ];
 
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
@@ -44,6 +53,7 @@ const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostFormEl = newPostModal.querySelector(".modal__form");
+const cardSubmitBtn = newPostModal.querySelector(".modal__button");
 const newPostLinkInput = newPostModal.querySelector("#card-image-input");
 const newPostCaptionInput = newPostModal.querySelector("#card-caption-input");
 
@@ -111,6 +121,11 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   profileNameInput.value = profileNameEl.textContent;
   profileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(
+    editProfileFormEl,
+    [profileNameInput, profileDescriptionInput],
+    settings
+  );
   openModal(editProfileModal);
 });
 
@@ -121,6 +136,12 @@ editProfileCloseBtn.addEventListener("click", function () {
 newPostBtn.addEventListener("click", function () {
   openModal(newPostModal);
 });
+
+resetValidation(
+  newPostFormEl,
+  [newPostLinkInput, newPostCaptionInput],
+  settings
+);
 
 newPostCloseBtn.addEventListener("click", function () {
   closeModal(newPostModal);
@@ -153,4 +174,18 @@ newPostFormEl.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach(function (cardItem) {
   const cardElement = getCardElement(cardItem);
   cardsList.append(cardElement);
+});
+
+enableValidation(settings);
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal(document.querySelector(".modal_is-opened"));
+  }
+});
+
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("modal")) {
+    closeModal(document.querySelector(".modal_is-opened"));
+  }
 });
