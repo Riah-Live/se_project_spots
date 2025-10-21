@@ -44,6 +44,17 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
+function handleEscapeKey(event) {
+  if (event.key === "Escape") {
+    closeModal(document.querySelector(".modal_is-opened"));
+  }
+}
+
+function handleClickOutside(event) {
+  if (event.target.classList.contains("modal")) {
+    closeModal(document.querySelector(".modal_is-opened"));
+  }
+}
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
@@ -112,10 +123,14 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  document.addEventListener("keydown", handleEscapeKey);
+  document.addEventListener("click", handleClickOutside);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
+  document.removeEventListener("click", handleClickOutside);
 }
 
 editProfileBtn.addEventListener("click", function () {
@@ -129,7 +144,7 @@ editProfileBtn.addEventListener("click", function () {
   openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener("click", function () {
+editProfileCloseBtn.addEventListener("click", () => {
   closeModal(editProfileModal);
 });
 
@@ -143,7 +158,7 @@ resetValidation(
   settings
 );
 
-newPostCloseBtn.addEventListener("click", function () {
+newPostCloseBtn.addEventListener("click", () => {
   closeModal(newPostModal);
 });
 
@@ -166,6 +181,11 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
   closeModal(newPostModal);
   evt.target.reset();
+  resetValidation(
+    newPostFormEl,
+    [newPostLinkInput, newPostCaptionInput],
+    settings
+  );
 }
 
 editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
@@ -177,15 +197,3 @@ initialCards.forEach(function (cardItem) {
 });
 
 enableValidation(settings);
-
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeModal(document.querySelector(".modal_is-opened"));
-  }
-});
-
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("modal")) {
-    closeModal(document.querySelector(".modal_is-opened"));
-  }
-});
